@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import {theme1} from './themes';
-import {Icon} from './elements'
+import { Icons } from 'elements'
+import Menu from './components/menu/Menu'
 
 class App extends Component {
   render() {
-    return (<>{theme1.color}<Icon name={'home'} color={'blue'}/></>);
+    return (<>{theme1.color}<Icons name={'back'} color={'blue'} />
+    <Menu />
+    </>);
   }
 }
 
