@@ -1,17 +1,23 @@
-import React from 'react'
-import Toggle from 'utilities/Toggle';
-import MenuButton from './MenuButton';
+import React from 'react';
 
-export default function Menu() {
+import { Portal } from 'react-portal';
+import { Icons } from 'elements';
+
+import MenuButton from './MenuButton';
+import MenuModal from './MenuModal';
+import {Toggle} from 'utilities';
+
+//accepts links array
+
+export default function Menu(props) {
   return (
     <Toggle>
       {({ on, toggle }) => (
-        <>
-        <MenuButton on={on} toggle={toggle} />
-        <div>{on ? 'Menu Shown' : 'Menu Hidden'}</div>
-      </>
+        <Portal>
+            <MenuButton toggle={toggle} on={on} />
+          <MenuModal on={on}>{props.children}</MenuModal>
+        </Portal>
       )}
-      
     </Toggle>
-  )
+  );
 }
