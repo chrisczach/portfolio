@@ -9,13 +9,13 @@ import {Toggle} from 'utilities';
 
 //accepts links array
 
-export default function Menu(props) {
+export default function Menu({menuItems}) {
   return (
     <Toggle>
       {({ on, toggle }) => (
         <Portal>
             <MenuButton toggle={toggle} on={on} />
-          <MenuModal on={on}>{props.children}</MenuModal>
+          <MenuModal toggle={toggle} on={on} menuItems={menuItems}></MenuModal>
         </Portal>
       )}
     </Toggle>

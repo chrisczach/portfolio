@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Icons } from 'elements';
-import { Transition } from 'react-spring';
+import { Transition, config } from 'react-spring';
 
 export default function MenuButton({ on, toggle }) {
   return (
     <Transition
+      config={config.slow}
       items={on}
       from={{ opacity: 0 }}
       enter={{ opacity: 1 }}

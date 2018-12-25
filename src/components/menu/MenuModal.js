@@ -1,9 +1,11 @@
 import React from 'react';
-import { Transition } from 'react-spring';
+import { Transition, config } from 'react-spring';
 import styled from 'styled-components';
 import { elevation } from 'utilities';
 
-export default function MenuModal({ on, children }) {
+export default function MenuModal({ on, toggle, menuItems }) {
+  const orientation =
+    window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
   return (
     <Transition
       items={on}
@@ -26,17 +28,20 @@ export default function MenuModal({ on, children }) {
       leave={{
         opacity: 1,
         top: '-100vh',
-        wrapTop: '-100vh'
+        wrapTop: '-100vh',
+        borderBottomLeftRadius: '3vmax',
+        borderBottomRightRadius: '3vmax'
       }}>
       {on =>
         on &&
         (props => (
           <DropDown style={props}>
             <MenuWrap style={{ top: `calc(50% + ${props.wrapTop})` }}>
-              <MenuItems>Item 1</MenuItems>
-              <MenuItems>Item 2</MenuItems>
-              <MenuItems>Item 3</MenuItems>
-              <MenuItems>Item 4</MenuItems>
+              {menuItems.map(({ link, title }) => (
+                <MenuItems key={title} onClick={toggle}>
+                  <A href={`#${link}`}>{title}</A>
+                </MenuItems>
+              ))}
             </MenuWrap>
           </DropDown>
         ))
@@ -52,16 +57,18 @@ const DropDown = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  width: 100vw;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 700px) {
+    height: 10vh;
+  }
 `;
 
 const MenuItems = styled.div`
-cursor: pointer;
+  cursor: pointer;
   border-radius: 5px;
   ${elevation[3]}
   margin: 2.5vw;
@@ -72,7 +79,7 @@ cursor: pointer;
   min-height: 15vh;
   background-color: teal;
   color: white;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 
   &:hover {
     ${elevation[4]}
@@ -90,4 +97,13 @@ const MenuWrap = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+`;
+
+const A = styled.a`
+  cursor: pointer;
+  width: 100%;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
