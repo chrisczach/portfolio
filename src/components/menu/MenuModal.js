@@ -3,6 +3,8 @@ import { Transition, config } from 'react-spring';
 import styled from 'styled-components';
 import { elevation } from 'utilities';
 
+
+
 export default function MenuModal({ on, toggle, menuItems }) {
   const orientation =
     window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
@@ -38,8 +40,9 @@ export default function MenuModal({ on, toggle, menuItems }) {
           <DropDown style={props}>
             <MenuWrap style={{ top: `calc(50% + ${props.wrapTop})` }}>
               {menuItems.map(({ link, title }) => (
-                <MenuItems key={title} onClick={toggle}>
-                  <A href={`#${link}`}>{title}</A>
+                <MenuItems key={title}>
+                  <Link onClick={toggle}  href={`#${link}`} />
+                  {title}
                 </MenuItems>
               ))}
             </MenuWrap>
@@ -68,6 +71,7 @@ const DropDown = styled.div`
 `;
 
 const MenuItems = styled.div`
+  position: relative;
   cursor: pointer;
   border-radius: 5px;
   ${elevation[3]}
@@ -99,11 +103,10 @@ const MenuWrap = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-const A = styled.a`
-  cursor: pointer;
+const Link = styled.a`
+  height: 100%;
   width: 100%;
-  height: inherit;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  z-index: 30000;
+  display: block;
 `;
