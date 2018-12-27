@@ -52,11 +52,7 @@ export default function CardModal({
             <CloseButton onClick={toggleModal}>
               <Icons onClick={toggleModal} color={'#eee'} name={'close'} />
             </CloseButton>
-            <AnimatedProjectFrame
-              src={link}
-              title={title}
-              display={props.loadingGradient === 100}
-            />
+            <AnimatedProjectFrame src={link} title={title} />
           </AnimatedModal>
         ))
       }
@@ -107,7 +103,3 @@ const Title = styled.div`
   font-size: 4vmax;
   height: 7vmax;
 `;
-
-const Loading = styled.div``;
-
-const AnimatedLoading = animated.div;
