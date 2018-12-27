@@ -17,24 +17,34 @@ export default class Portfolio extends Component {
     originY: null,
     viewX: null,
     viewY: null
-  }
-
-
-  toggleModal = ({ link, title, shown, originX, originY, viewX, viewY }) => {
-    this.setState(state => {
-      if (shown === false) {
-        return { ...state, shown }
-      } else {
-        return {link, title, shown, originX, originY, viewX, viewY}
-      }
-
-    })
-
   };
 
+  toggleModal = ({ link, title, shown, originX, originY, viewX, viewY }) => {
+    console.log(`origin: ${originX} ${originY} target: ${viewX} ${viewY}`);
+    this.setState(state => {
+      if (shown === false) {
+        return { ...state, shown };
+      } else {
+        return { link, title, shown, originX, originY, viewX, viewY };
+      }
+    });
+  };
 
+  onScroll = () => {
+    this.setState(state => {
+      const viewX = window.innerWidth / 2;
+      const viewY = window.innerHeight / 2;
+      return { viewX, viewY };
+    });
+  };
+  componentDidMount() {
+    this.onScroll();
+    window.addEventListener('resize', this.onScroll);
+  }
 
-  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onScroll);
+  }
 
   render() {
     const { projects } = this.props;
@@ -49,7 +59,7 @@ export default class Portfolio extends Component {
         />
       )
     );
-    
+
     const { link, title, shown, originX, originY, viewX, viewY } = this.state;
 
     return (
@@ -58,7 +68,7 @@ export default class Portfolio extends Component {
 
         <Portal>
           <CardModal
-            toggleModal={()=>this.toggleModal({shown: false})}
+            toggleModal={() => this.toggleModal({ shown: false })}
             link={link}
             title={title}
             shown={shown}
@@ -68,11 +78,7 @@ export default class Portfolio extends Component {
             targetY={viewY}
           />
         </Portal>
-
       </>
     );
-
-
   }
-  
 }

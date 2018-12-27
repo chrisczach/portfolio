@@ -39,7 +39,7 @@ const menuItems = [
             description: 'A game built in react.'
           },
           {
-            title: 'Winnie Puzzle',
+            title: 'Winnie Shuffle',
             link: 'https://winniepuzzle.chrisczach.com',
             repository: 'https://github.com/chrisczach/winniepuzzle',
             description: 'A game built in react.'

@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { Icons } from 'elements';
 import { Transition, config } from 'react-spring';
+import { animated } from 'react-spring';
 
 export default function MenuButton({ on, toggle }) {
   return (
     <Transition
+      native
       config={config.slow}
       items={on}
       from={{ opacity: 0 }}
@@ -14,24 +16,24 @@ export default function MenuButton({ on, toggle }) {
       {on =>
         on
           ? props => (
-              <IconButton style={props} onClick={toggle}>
-                <Icons
+              <AnimatedIconButton style={props} onClick={toggle}>
+              <AnimatedIcons
                   style={props}
                   onClick={toggle}
                   color={'#eee'}
                   name={'close'}
                 />
-              </IconButton>
+              </AnimatedIconButton>
             )
           : props => (
-              <IconButton style={props} onClick={toggle}>
-                <Icons
+              <AnimatedIconButton style={props} onClick={toggle}>
+              <AnimatedIcons
                   style={props}
                   onClick={toggle}
                   color={'#444'}
                   name={'menu'}
                 />
-              </IconButton>
+              </AnimatedIconButton>
             )
       }
     </Transition>
@@ -45,3 +47,6 @@ const IconButton = styled.div`
   position: fixed;
   z-index: 500;
 `;
+
+const AnimatedIconButton = animated(IconButton);
+const AnimatedIcons = animated(Icons);

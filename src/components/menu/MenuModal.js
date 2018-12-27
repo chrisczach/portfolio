@@ -1,15 +1,14 @@
 import React from 'react';
-import { Transition, config } from 'react-spring';
+import { Transition, config, animated, interpolate } from 'react-spring';
 import styled from 'styled-components';
 import { elevation } from 'utilities';
-
-
 
 export default function MenuModal({ on, toggle, menuItems }) {
   const orientation =
     window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
   return (
     <Transition
+      native
       items={on}
       from={{
         opacity: 0,
@@ -37,16 +36,16 @@ export default function MenuModal({ on, toggle, menuItems }) {
       {on =>
         on &&
         (props => (
-          <DropDown style={props}>
-            <MenuWrap style={{ top: `calc(50% + ${props.wrapTop})` }}>
+          <AnimatedDropDown style={props}>
+            <AnimatedMenuWrap style={{ top: `calc(50% + ${props.wrapTop})` }}>
               {menuItems.map(({ link, title }) => (
                 <MenuItems key={title}>
-                  <Link onClick={toggle}  href={`#${link}`} />
+                  <Link onClick={toggle} href={`#${link}`} />
                   {title}
                 </MenuItems>
               ))}
-            </MenuWrap>
-          </DropDown>
+            </AnimatedMenuWrap>
+          </AnimatedDropDown>
         ))
       }
     </Transition>
@@ -69,6 +68,8 @@ const DropDown = styled.div`
     height: 10vh;
   }
 `;
+
+const AnimatedDropDown = animated(DropDown);
 
 const MenuItems = styled.div`
   position: relative;
@@ -102,6 +103,8 @@ const MenuWrap = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
+
+const AnimatedMenuWrap = animated(MenuWrap);
 
 const Link = styled.a`
   height: 100%;
