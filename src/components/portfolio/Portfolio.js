@@ -13,14 +13,26 @@ export default class Portfolio extends Component {
     link: null,
     title: null,
     shown: null,
-    origin: null
+    originX: null,
+    originY: null,
+    viewX: null,
+    viewY: null
   }
 
 
-  toggleModal = ({ link, title, shown, origin }) => {
-    this.setState({link, title, shown, origin})
+  toggleModal = ({ link, title, shown, originX, originY, viewX, viewY }) => {
+    this.setState(state => {
+      if (shown === false) {
+        return { ...state, shown }
+      } else {
+        return {link, title, shown, originX, originY, viewX, viewY}
+      }
+
+    })
 
   };
+
+
 
   
 
@@ -29,7 +41,7 @@ export default class Portfolio extends Component {
     const projectCards = projects.map(
       ({ title, link, repository, description }) => (
         <ProjectCard
-          toggleModal={()=> this.toggleModal({link, title, shown: true, origin: 'need to add'})}
+          toggleModal={this.toggleModal}
           title={title}
           link={link}
           repository={repository}
@@ -38,7 +50,7 @@ export default class Portfolio extends Component {
       )
     );
     
-    const { link, title, shown, origin } = this.state;
+    const { link, title, shown, originX, originY, viewX, viewY } = this.state;
 
     return (
       <>
@@ -46,10 +58,14 @@ export default class Portfolio extends Component {
 
         <Portal>
           <CardModal
+            toggleModal={()=>this.toggleModal({shown: false})}
             link={link}
             title={title}
             shown={shown}
-            origin={origin}
+            originX={originX}
+            originY={originY}
+            targetX={viewX}
+            targetY={viewY}
           />
         </Portal>
 
