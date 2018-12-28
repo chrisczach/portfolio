@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Transition, config, interpolate, animated } from 'react-spring';
 
-import { Icons } from 'elements';
+import { Icons } from './elements';
 
 export default function CardModal({
   link,

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import { theme1 } from './themes';
-import { Icons } from 'elements';
+import { Icons } from './elements';
 import Menu from './components/menu/Menu';
 import Section from './components/section/Section';
 import Portfolio from './components/portfolio/Portfolio';
