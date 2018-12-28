@@ -24,7 +24,7 @@ export default function ProjectCard({
             originY: clientY
           })
         }>
-        Demo {Icons({ name: 'rightArrow', size: '3vmax', color: '#eee' })}
+        Demo {Icons({ name: 'rightArrow', size: '2vmax', color: '#eee' })}
       </DemoButton>
       <SourceLink href={repository} target="blank">
         Source Code
@@ -34,23 +34,22 @@ export default function ProjectCard({
 }
 
 const Title = styled.h1`
-color: #222
+  color: #222;
   font-weight: 300;
-  font-size: 2.5vmax;
-  margin: 0 1.5vmax;
-  
+  font-size: 2vmax;
+  margin: 0 0.75vmax;
 `;
 const Description = styled.p`
-color: #666;
-font-weight: 200;
-font-size: 2vmax;
-  margin: 3vmax 1.5vmax;
+  color: #666;
+  font-weight: 200;
+  font-size: 1.5vmax;
+  margin: 3vmax 0.75vmax;
 `;
 
 const SourceLink = styled.a`
   color: #0e1e25;
   margin: 0.75vmax;
-  font-size: 1.5vmax;
+  font-size: 1vmax;
 
   &:hover {
     color: blue;
@@ -58,12 +57,12 @@ const SourceLink = styled.a`
 `;
 
 const DemoButton = styled.div`
-  border-radius: 3px;
-  padding: 0.75vmax 1.5vmax;
+  border-radius: 5px;
+  padding: 0.25vmax 0.75vmax;
   cursor: pointer;
   background: #444;
   color: #eee;
-  font-size: 2vmax;
+  font-size: 1.25vmax;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,6 +72,9 @@ const DemoButton = styled.div`
 
   @media (orientation: portrait) {
     width: 75%;
+    padding: 0.75vmax 1.5vmax;
+
+    font-size: 1.5vmax;
   }
 
   &:hover {
@@ -86,6 +88,7 @@ const DemoButton = styled.div`
 `;
 
 const Card = styled.div`
+  border-radius: 5px;
   background-color: white;
   display: flex;
   justify-content: center;

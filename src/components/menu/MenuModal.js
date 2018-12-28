@@ -54,7 +54,7 @@ export default function MenuModal({ on, toggle, menuItems }) {
 
 const DropDown = styled.div`
   overflow: hidden;
-  background: #444;
+  background: #666;
   z-index: 100;
   position: fixed;
   top: 0;
@@ -72,19 +72,24 @@ const DropDown = styled.div`
 const AnimatedDropDown = animated(DropDown);
 
 const MenuItems = styled.div`
+  font-size: 2.5vmax;
   position: relative;
   cursor: pointer;
   border-radius: 5px;
   ${elevation[3]}
-  margin: 2.5vw;
+  margin: 1.5vmax;
   display: flex;
   justify-content: center;
   align-items: center;
   min-width: 50vw;
-  min-height: 15vh;
+  min-height: 10vmax;
   background-color: teal;
   color: white;
   transition: all 0.2s ease;
+
+  @media (orientation: portrait) {
+    width: calc(100vw - 3vmax);
+  }
 
   &:hover {
     ${elevation[4]}
