@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { Portal } from 'react-portal';
-import { Icons } from './elements';
+import { Icons } from '../../elements';
 
 import MenuButton from './MenuButton';
 import MenuModal from './MenuModal';
-import {Toggle} from './utilities';
+import {Toggle} from '../../utilities';
 
 //accepts links array
 

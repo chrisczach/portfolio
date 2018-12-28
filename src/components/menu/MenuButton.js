@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Icons } from './elements';
+import { Icons } from '../../elements';
 import { Transition, config } from 'react-spring';
 import { animated } from 'react-spring';
 

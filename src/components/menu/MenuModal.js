@@ -1,7 +1,7 @@
 import React from 'react';
 import { Transition, config, animated, interpolate } from 'react-spring';
 import styled from 'styled-components';
-import { elevation } from './utilities';
+import { elevation } from '../../utilities';
 
 export default function MenuModal({ on, toggle, menuItems }) {
   const orientation =
