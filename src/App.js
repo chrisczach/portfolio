@@ -43,6 +43,36 @@ const menuItems = [
             link: 'https://winniepuzzle.chrisczach.com',
             repository: 'https://github.com/chrisczach/winniepuzzle',
             description: 'A game built in react.'
+          },
+          {
+            title: 'Placeholder 1',
+            link: 'https://winniepuzzle.chrisczach.com',
+            repository: 'https://github.com/chrisczach/winniepuzzle',
+            description: 'Placeholder description.'
+          },
+          {
+            title: 'Placeholder 2',
+            link: 'https://winniepuzzle.chrisczach.com',
+            repository: 'https://github.com/chrisczach/winniepuzzle',
+            description: 'Placeholder description.'
+          },
+          {
+            title: 'Placeholder 3',
+            link: 'https://winniepuzzle.chrisczach.com',
+            repository: 'https://github.com/chrisczach/winniepuzzle',
+            description: 'Placeholder description.'
+          },
+          {
+            title: 'Placeholder 4',
+            link: 'https://winniepuzzle.chrisczach.com',
+            repository: 'https://github.com/chrisczach/winniepuzzle',
+            description: 'Placeholder description.'
+          },
+          {
+            title: 'Placeholder 5',
+            link: 'https://winniepuzzle.chrisczach.com',
+            repository: 'https://github.com/chrisczach/winniepuzzle',
+            description: 'Placeholder description.'
           }
         ]}
       />

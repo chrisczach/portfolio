@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import { transparentize } from 'polished';
 
-configureAnchors({ scrollDuration: 500 });
+configureAnchors({scrollDuration: 500 });
 
 export default function Section({ bg, title, children, link, columns }) {
   return (
@@ -18,12 +18,11 @@ export default function Section({ bg, title, children, link, columns }) {
 
 const SectionWrapper = styled.section`
 overflow: hidden;
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background: ${props => transparentize(.75, props.backgroundColor)};
-  padding: 1.5vmax;
 `;
 
 const Header = styled.header`
+  margin-left: 1.5vmax;
   font-size: 5vmax;
 `;

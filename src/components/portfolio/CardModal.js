@@ -19,30 +19,28 @@ export default function CardModal({
       native
       items={shown}
       from={{
-        loadingOpacity: 1,
-        loadingGradient: 0,
+        opacity: 1,
         width: '0vw',
         height: '0vh',
         top: `${originY || 0}px`,
         left: `${originX || 0}px`,
-        borderRadius: '300vmax'
+        borderRadius: '25%'
       }}
       enter={{
-        loadingOpacity: 1,
-        loadingGradient: 100,
+        opacity: 1,
         width: '100vw',
         height: '100vh',
         top: `${targetY || 0}px`,
         left: `${targetX || 0}px`,
-        borderRadius: '0vmax'
+        borderRadius: '0%'
       }}
       leave={{
-        loadingOpacity: 0,
+        opacity: 0,
         width: '0vw',
         height: '0vh',
         top: `${originY || 0}px`,
         left: `${originX || 0}px`,
-        borderRadius: '300vmax'
+        borderRadius: '25%'
       }}>
       {shown =>
         shown &&
@@ -74,6 +72,7 @@ const Modal = styled.div`
 const AnimatedModal = animated(Modal);
 
 const CloseButton = styled.div`
+  z-index: 200;
   cursor: pointer;
   position: absolute;
   top: 1.5vmax;
@@ -81,10 +80,11 @@ const CloseButton = styled.div`
 `;
 
 const ProjectFrame = styled.iframe`
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  width: 100%;
-  height: calc(100% - 7vmax);
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 7vmax);
   border: none;
   background: transparent;
 `;
@@ -92,6 +92,8 @@ const ProjectFrame = styled.iframe`
 const AnimatedProjectFrame = animated(ProjectFrame);
 
 const Title = styled.div`
+  background: #444;
+  z-index: 100;
   color: #eee;
   position: absolute;
   top: 0;

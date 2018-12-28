@@ -20,7 +20,6 @@ export default class Portfolio extends Component {
   };
 
   toggleModal = ({ link, title, shown, originX, originY, viewX, viewY }) => {
-    console.log(`origin: ${originX} ${originY} target: ${viewX} ${viewY}`);
     this.setState(state => {
       if (shown === false) {
         return { ...state, shown };
@@ -64,8 +63,7 @@ export default class Portfolio extends Component {
 
     return (
       <>
-        {projectCards}
-
+        <ProjectGrid>{projectCards}</ProjectGrid>
         <Portal>
           <CardModal
             toggleModal={() => this.toggleModal({ shown: false })}
@@ -82,3 +80,14 @@ export default class Portfolio extends Component {
     );
   }
 }
+
+const ProjectGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  
+  @media (orientation: portrait) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  margin: 1.5vmax;
+  grid-gap: 1.5vmax;
+`;

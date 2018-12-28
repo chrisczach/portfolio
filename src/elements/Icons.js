@@ -10,6 +10,8 @@ export default function Icons({ name, color = 'black', size = '4vmax' }) {
       return picture({ color, size });
     case 'download':
       return download({ color, size });
+    case 'rightArrow':
+      return rightArrow({ color, size });
     case 'play':
       return play({ color, size });
     case 'home':
@@ -467,9 +469,8 @@ const next = ({ color, size }) => (
   </svg>
 );
 
-const back = ({ color, size }) => (
+const rightArrow = ({ color, size }) => (
   <svg
-    style={{ transform: 'scale(-1, 1)'}}
     version="1.1"
     id="Capa_1"
     x="0px"
@@ -477,8 +478,32 @@ const back = ({ color, size }) => (
     width={size}
     height={size}
     viewBox="0 0 294.843 294.843">
-    <g fill={color} >
-      <path 
+    <g fill={color}>
+      <path
+        d="M213.499,147.518c0-3.313-2.687-6-6-6H58.069c-3.314,0-6,2.687-6,6s2.686,6,6,6h149.43
+		C210.812,153.518,213.499,150.831,213.499,147.518z"
+      />
+      <path
+        d="M165.686,210.275c-2.344,2.343-2.344,6.142,0,8.485c1.171,1.171,2.707,1.757,4.242,1.757s3.071-0.586,4.242-1.757l67-67
+		c2.344-2.343,2.344-6.142,0-8.485l-67-67c-2.342-2.343-6.143-2.343-8.484,0c-2.344,2.343-2.344,6.142,0,8.485l62.757,62.757
+		L165.686,210.275z"
+      />
+    </g>
+  </svg>
+);
+
+const back = ({ color, size }) => (
+  <svg
+    style={{ transform: 'scale(-1, 1)' }}
+    version="1.1"
+    id="Capa_1"
+    x="0px"
+    y="0px"
+    width={size}
+    height={size}
+    viewBox="0 0 294.843 294.843">
+    <g fill={color}>
+      <path
         d="M286.36,98.016c-13.223-37.091-40.098-66.813-75.675-83.691C175.109-2.554,135.088-4.567,97.997,8.656
 		C60.906,21.879,31.183,48.754,14.305,84.331C-2.572,119.908-4.585,159.928,8.637,197.02c1.113,3.122,4.547,4.748,7.667,3.637
 		c3.122-1.113,4.75-4.545,3.637-7.667C7.794,158.918,9.643,122.155,25.147,89.474s42.807-57.369,76.879-69.515
