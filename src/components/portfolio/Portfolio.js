@@ -6,7 +6,7 @@ import { modularScale } from 'polished';
 import { Portal } from 'react-portal';
 
 import { Icons } from './elements';
-import { Toggle } from './utilities';
+import { Toggle } from '../../utilities';
 
 export default class Portfolio extends Component {
   state = {
