@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Transition, animated, interpolate, config } from 'react-spring';
 
-import { Portal, absolute } from './utilities';
+import { Portal, absolute } from '../utilities';
 import Icon from './Icons';
 import { Card } from './Cards';
 

@@ -11,15 +11,16 @@
 // }
 
 
-export const theme1 = {
-  light: {
-    primaryColor: 'black',
-    secondaryColor: 'white',
-    accentColor: 'orange'
-  },
-  dark: {
+// export const theme1 = {
+//   light: {
+//     primaryColor: 'black',
+//     secondaryColor: 'white',
+//     accentColor: 'orange'
+//   },
+//   dark: {
 
 
-  }
-}
+//   }
+// }
+
 
