@@ -86,8 +86,8 @@ const ProjectGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 1.5vmax 0;
-  filter: drop-shadow(0px 3px 6px #bbb);
-  margin: 4.5vmax auto 28vw 1.5vmax;
+  filter: drop-shadow(0px 1px 3px #aaa) drop-shadow(0px 3px 12px #eee) ;
+  margin: 6vmax auto 28vw 1.5vmax;
   transform: translateX(1.5vmax);
 
   @media (orientation: portrait) {

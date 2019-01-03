@@ -12,10 +12,42 @@ html {
   box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+
+body::-webkit-scrollbar {
+  z-index: 1;
+width: .75vw;
+border-radius: 10000px;
+background: transparent;
+}
+
+body::-webkit-scrollbar:hover{
+  border: 1px solid rgba(0,0,0,.05);
+  z-index: 1;
+  background: rgba(0,0,0,.1);
+width: .75vw;
+  }
+
+
+/* Track */
+body::-webkit-scrollbar-track {
+  z-index: 1;
+  background: transparent;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  border-radius: 1000px;
+  z-index: 1;
+  border: 1px solid #666; 
+  background: rgba(0,0,0,.1);
 }
 
 
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+  border: 1px solid #444;
+  box-shadow: 0 0 5px #;
+  z-index: 1;
+  background: rgba(0,0,0,.2); 
+}
 

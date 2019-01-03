@@ -74,7 +74,7 @@ const DemoButton = styled.div`
   border-radius: 5px;
   padding: 0.25vmax 0.75vmax;
   cursor: pointer;
-  background: #444;
+  background: #888;
   color: #eee;
   font-size: 1vw;
   display: flex;
@@ -116,7 +116,7 @@ const Card = styled.div`
   @media (orientation: landscape) {
     height: 15vw;
     width: 15vw;
-    transition: background-color .3s ease;
+    transition: background-color .4s ease;
     &:hover {
       background-color: lightsteelblue;
     }
