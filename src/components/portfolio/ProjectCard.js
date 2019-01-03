@@ -37,32 +37,32 @@ export default function ProjectCard({
 const Title = styled.h1`
   color: #222;
   font-weight: 300;
-  font-size: 1.75vmax;
-  margin: 0 0.75vmax;
+  font-size: 1.5vw;
+  margin: 0 0.75vw;
 
   @media (orientation: portrait) {
-    font-size: 1.5vmax;
+    font-size: 4vw;
   }
 `;
 const Description = styled.p`
   color: #666;
   font-weight: 200;
-  font-size: 1.5vmax;
-  margin: 3vmax 0.75vmax;
+  font-size: 1vw;
+  margin: 1.5vmax 0.75vmax;
 
   @media (orientation: portrait) {
-    font-size: 1vmax;
-    margin: 1.5vmax 0.25vmax;
+    font-size: 3vw;
+    margin: 4vw 0;
   }
 `;
 
 const SourceLink = styled.a`
   color: #0e1e25;
   margin: 0.75vmax;
-  font-size: 1vmax;
+  font-size: 1vw;
 
   @media (orientation: portrait) {
-    font-size: 0.75vmax;
+    font-size: 3vw;
   }
 
   &:hover {
@@ -76,19 +76,21 @@ const DemoButton = styled.div`
   cursor: pointer;
   background: #444;
   color: #eee;
-  font-size: 1.25vmax;
+  font-size: 1vw;
   display: flex;
   justify-content: center;
   align-items: center;
   ${elevation[2]}
+  
+  
 
   width: 50%;
 
   @media (orientation: portrait) {
     width: 50%;
-    padding: 0.25vmax;
+    padding: 2vw;
 
-    font-size: 1.25vmax;
+    font-size: 3vw;
   }
 
   &:hover {
@@ -123,32 +125,12 @@ const Card = styled.div`
       const column =( (index-1) % 6)+1;
       if(index % 2 === 0) {
         return `
-        transform: translate(calc((-12.5% - .75vmax)*${column-1}), calc(50% + .75vmax));`
+        transform: translate(calc((-12.5% - .75vmax)*${column-1}), calc(${column === 4 ? '-50% - .75vmax ' : '50% + .75vmax'} ));`
       }
 
       if(column > 1) {
        return ` transform: translateX(calc((-12.5% - .75vmax)*${column-1}));`
       }
-
-    //   if (index % 4 === 0) {
-    //     return `
-    //     transform: translate(calc(-62.5% - 2.25vmax), calc(50% + .75vmax));
-    // `;
-    //   } else if (index % 4 === 3) {
-    //     return `
-    //     transform: translate(calc(-37.5% - 1.5vmax), 0);
-    // `;
-    //   } else if (index % 4 === 2) {
-    //     return `
-    //     transform: translate(calc(-12.5% - .75vmax), calc(50% + .75vmax));
-    
-    
-    // `;
-    //   } else {
-    //     return `
-    // transform: translate(12.5%, 0);
-    // `;
-    //   }
 
 
     }
