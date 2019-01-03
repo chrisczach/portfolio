@@ -75,7 +75,7 @@ const menuItems = [
             description: 'Placeholder description.'
           },
           {
-            title: 'Placeholder 5',
+            title: 'Placeholder 6',
             link: 'https://winniepuzzle.chrisczach.com',
             repository: 'https://github.com/chrisczach/winniepuzzle',
             description: 'Placeholder description.'

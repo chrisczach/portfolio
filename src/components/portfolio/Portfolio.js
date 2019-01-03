@@ -85,9 +85,10 @@ export default class Portfolio extends Component {
 const ProjectGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5vmax;
+  gap: 1.5vmax 0;
   filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.5));
-  margin: 3vmax 0 28vw 0;
+  margin: 3vmax auto 28vw auto;
+  transform: translateX(1.5vmax);
 
   @media (orientation: portrait) {
     grid-template-columns: repeat(2, 1fr);

@@ -114,19 +114,23 @@ const Card = styled.div`
   @media (orientation: landscape) {
     height: 20vw;
     width: 20vw;
+    transition: background-color .3s ease;
+    &:hover {
+      background-color: lightsteelblue;
+    }
 
     ${({ index }) => {
       if (index % 4 === 0) {
         return `
-        transform: translate(-62.5%, calc(50% + .75vmax));
+        transform: translate(calc(-62.5% - 2.25vmax), calc(50% + .75vmax));
     `;
       } else if (index % 4 === 3) {
         return `
-        transform: translate(-37.5%, calc(100% + 1.5vmax));
+        transform: translate(calc(-37.5% - 1.5vmax), calc(100% + 1.5vmax));
     `;
       } else if (index % 4 === 2) {
         return `
-        transform: translate(-12.5%, calc(50% + .75vmax));
+        transform: translate(calc(-12.5% - .75vmax), calc(50% + .75vmax));
     
     
     `;
@@ -144,7 +148,7 @@ const Card = styled.div`
     ${({ index }) => {
       if (index % 2 === 0) {
         return `
-        transform: translate(-12.5%, calc(50% + .75vmax));
+        transform: translate(calc(-12.5% - .75vmax), calc(50% + .75vmax));
     
     
     `;
