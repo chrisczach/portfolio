@@ -25,4 +25,5 @@ overflow: hidden;
 const Header = styled.header`
   margin-left: 1.5vmax;
   font-size: 5vmax;
+  color: #666;
 `;

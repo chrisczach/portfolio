@@ -112,34 +112,47 @@ const Card = styled.div`
   clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
 
   @media (orientation: landscape) {
-    height: 20vw;
-    width: 20vw;
+    height: 15vw;
+    width: 15vw;
     transition: background-color .3s ease;
     &:hover {
       background-color: lightsteelblue;
     }
 
     ${({ index }) => {
-      if (index % 4 === 0) {
+      const column =( (index-1) % 6)+1;
+      if(index % 2 === 0) {
         return `
-        transform: translate(calc(-62.5% - 2.25vmax), calc(50% + .75vmax));
-    `;
-      } else if (index % 4 === 3) {
-        return `
-        transform: translate(calc(-37.5% - 1.5vmax), calc(100% + 1.5vmax));
-    `;
-      } else if (index % 4 === 2) {
-        return `
-        transform: translate(calc(-12.5% - .75vmax), calc(50% + .75vmax));
-    
-    
-    `;
-      } else {
-        return `
-    transform: translate(12.5%, 0);
-    `;
+        transform: translate(calc((-12.5% - .75vmax)*${column-1}), calc(50% + .75vmax));`
       }
-    }}
+
+      if(column > 1) {
+       return ` transform: translateX(calc((-12.5% - .75vmax)*${column-1}));`
+      }
+
+    //   if (index % 4 === 0) {
+    //     return `
+    //     transform: translate(calc(-62.5% - 2.25vmax), calc(50% + .75vmax));
+    // `;
+    //   } else if (index % 4 === 3) {
+    //     return `
+    //     transform: translate(calc(-37.5% - 1.5vmax), 0);
+    // `;
+    //   } else if (index % 4 === 2) {
+    //     return `
+    //     transform: translate(calc(-12.5% - .75vmax), calc(50% + .75vmax));
+    
+    
+    // `;
+    //   } else {
+    //     return `
+    // transform: translate(12.5%, 0);
+    // `;
+    //   }
+
+
+    }
+    }
   }
 
   @media (orientation: portrait) {
@@ -148,13 +161,13 @@ const Card = styled.div`
     ${({ index }) => {
       if (index % 2 === 0) {
         return `
-        transform: translate(calc(-12.5% - .75vmax), calc(50% + .75vmax));
+        transform: translate(calc(-12.5% - .75vmax), 0);
     
     
     `;
       } else {
         return `
-    transform: translate(12.5%, 0);
+    transform: translate(12.5%, calc(50% + .75vmax));
     `;
       }
     }}
