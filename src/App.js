@@ -73,6 +73,12 @@ const menuItems = [
             link: 'https://winniepuzzle.chrisczach.com',
             repository: 'https://github.com/chrisczach/winniepuzzle',
             description: 'Placeholder description.'
+          },
+          {
+            title: 'Placeholder 5',
+            link: 'https://winniepuzzle.chrisczach.com',
+            repository: 'https://github.com/chrisczach/winniepuzzle',
+            description: 'Placeholder description.'
           }
         ]}
       />

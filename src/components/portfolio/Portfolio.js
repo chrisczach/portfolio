@@ -48,8 +48,9 @@ export default class Portfolio extends Component {
   render() {
     const { projects } = this.props;
     const projectCards = projects.map(
-      ({ title, link, repository, description }) => (
+      ({ title, link, repository, description }, index) => (
         <ProjectCard
+          index={index + 1}
           toggleModal={this.toggleModal}
           title={title}
           link={link}
@@ -84,10 +85,11 @@ export default class Portfolio extends Component {
 const ProjectGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  
+  gap: 1.5vmax;
+  filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.5));
+  margin: 3vmax 0 28vw 0;
+
   @media (orientation: portrait) {
     grid-template-columns: repeat(2, 1fr);
   }
-  margin: 1.5vmax;
-  grid-gap: 1.5vmax;
 `;

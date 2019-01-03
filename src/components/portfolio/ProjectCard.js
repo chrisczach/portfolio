@@ -8,10 +8,11 @@ export default function ProjectCard({
   link,
   repository,
   description,
-  toggleModal
+  toggleModal,
+  index
 }) {
   return (
-    <Card>
+    <Card index={index}>
       <Title>{title}</Title>
       <Description>{description}</Description>
       <DemoButton
@@ -36,20 +37,33 @@ export default function ProjectCard({
 const Title = styled.h1`
   color: #222;
   font-weight: 300;
-  font-size: 2vmax;
+  font-size: 1.75vmax;
   margin: 0 0.75vmax;
+
+  @media (orientation: portrait) {
+    font-size: 1.5vmax;
+  }
 `;
 const Description = styled.p`
   color: #666;
   font-weight: 200;
   font-size: 1.5vmax;
   margin: 3vmax 0.75vmax;
+
+  @media (orientation: portrait) {
+    font-size: 1vmax;
+    margin: 1.5vmax 0.25vmax;
+  }
 `;
 
 const SourceLink = styled.a`
   color: #0e1e25;
   margin: 0.75vmax;
   font-size: 1vmax;
+
+  @media (orientation: portrait) {
+    font-size: 0.75vmax;
+  }
 
   &:hover {
     color: blue;
@@ -71,10 +85,10 @@ const DemoButton = styled.div`
   width: 50%;
 
   @media (orientation: portrait) {
-    width: 75%;
-    padding: 0.75vmax 1.5vmax;
+    width: 50%;
+    padding: 0.25vmax;
 
-    font-size: 1.5vmax;
+    font-size: 1.25vmax;
   }
 
   &:hover {
@@ -95,14 +109,50 @@ const Card = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 1.5vmax;
-  ${elevation[2]}
-  transition: all .2s;
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
 
-  &:hover {
-    ${elevation[3]}
+  @media (orientation: landscape) {
+    height: 20vw;
+    width: 20vw;
+
+    ${({ index }) => {
+      if (index % 4 === 0) {
+        return `
+        transform: translate(-62.5%, calc(50% + .75vmax));
+    `;
+      } else if (index % 4 === 3) {
+        return `
+        transform: translate(-37.5%, calc(100% + 1.5vmax));
+    `;
+      } else if (index % 4 === 2) {
+        return `
+        transform: translate(-12.5%, calc(50% + .75vmax));
+    
+    
+    `;
+      } else {
+        return `
+    transform: translate(12.5%, 0);
+    `;
+      }
+    }}
   }
 
-  &:active {
-    ${elevation[2]}
+  @media (orientation: portrait) {
+    height: 40vw;
+    width: 40vw;
+    ${({ index }) => {
+      if (index % 2 === 0) {
+        return `
+        transform: translate(-12.5%, calc(50% + .75vmax));
+    
+    
+    `;
+      } else {
+        return `
+    transform: translate(12.5%, 0);
+    `;
+      }
+    }}
   }
 `;
